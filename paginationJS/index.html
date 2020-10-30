@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title></title>
+</head>
+
+<body>
+ <ul id="list">
+  <li>list item 1 </li>
+  <li>list item 2</li>
+  <li>list item 3</li>
+  <li>list item 4</li>
+  <li>list item 5</li>
+  <li>list item 6</li>
+  <li>list item 7</li>
+  <li>list item 8</li>
+  <li><a href="#">list item 9</a></li>
+  <li>list item 10</li>
+  <li>list item 11</li>
+  <li>list item 12</li>
+  <li>list item 13</li>
+  <li>list item 14</li>
+  <li>list item 15</li>
+  <li>list item 16</li>
+  <li>list item 17</li>
+  <li>list item 18</li>
+  <li>list item 19</li>
+  <li>list item 20</li>
+  <li>list item 21</li>
+  <li>list item 22</li>
+  <li>list item 23</li>
+  <li>list item 24</li>
+  <li>list item 25</li>
+  <li>list item 26</li>
+  <li>list item 27</li>
+  <li>list item 28</li>
+  <li>list item 29</li>
+  <li>list item 30</li>
+  <li>list item 31</li>
+  <li>list item 32</li>
+  <li>list item 33</li>
+  <li>list item 34</li>
+  <li>list item 35</li>
+  <li>list item 36</li>
+  <li>list item 37</li>
+ </ul>
+ <div> <button id="prev">Prev</button>
+  <button id="test">Test</button>
+  <button id="next">Next</button>
+ </div>
+ <script>
+  let list = document.getElementById('list');
+
+  let listItems = document.querySelectorAll('#list li');
+  //alert(listItems.length);
+  let items = 0;
+
+  for (let i = 0; i < listItems.length; i++) {
+   listItems[i].style.display = 'block';
+   if (i > 4) {
+    listItems[i].style.display = 'none';
+   }
+  }
+
+
+
+
+  document.getElementById('next').addEventListener('click', () => {
+   do {
+    items += 5;
+    if (items >= listItems.length) {
+     items = 0;
+    }
+    for (let i in listItems) {
+
+     if (i < items) {
+      listItems[i].style.display = 'none'
+
+     }
+     else if (i >= (items + 5)) {
+      listItems[i].style.display = 'none';
+     }
+     else {
+      listItems[i].style.display = 'block';
+     }
+    }
+   }
+   while (items < listItems.length)
+  });
+
+
+
+
+
+  document.getElementById('prev').addEventListener('click', () => {
+   do {
+    items -= 5;
+    if (items <= 0) {
+     items = listItems.length;
+    }
+    for (let i in listItems) {
+     if (i > items) {
+      listItems[i].style.display = 'none'
+
+     }
+     else if (i >= (items - 5)) {
+      listItems[i].style.display = 'none';
+     }
+     else {
+      listItems[i].style.display = 'block';
+     }
+    }
+   }
+   while (items < listItems.length)
+  });
+ </script>
+</body>
+
+</html>
